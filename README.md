@@ -1,2 +1,2 @@
-# navis-bootcamp-js
+# NavisCode Bootcamp JavaScript
 Navis JavaScript Bootcamp exercises Repository
