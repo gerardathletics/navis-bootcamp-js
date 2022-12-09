@@ -61,6 +61,7 @@ function editExpense() {
   });
 
 }
+
 // función para eliminar un gasto
 function deleteExpense() {
   let nameExpense = prompt(

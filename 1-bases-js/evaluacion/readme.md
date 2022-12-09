@@ -1,4 +1,4 @@
-# Controlador de gastos
+# Controlador de gastos - Indicaciones
 Nos han encargado un controlador de gastos para una aplicación de gestión de finanzas.
 
 El controlador debe permitir como mínimo:
@@ -21,7 +21,7 @@ Piensa bien la estructura de datos que vas a usar
 Ten en cuenta la experiencia de usuario (que sea "feo" no es un problema, pero que no se pueda usar sí lo es).
 Intenta hacerlo lo más modular posible, es decir, que cada función haga una cosa y lo haga bien.
 
-# Controlador de gastos
+# Aplicacion: Controlador de gastos
 
 Este script de JavaScript implementa un controlador de gastos que permite a un usuario llevar un registro de sus gastos y realizar diferentes acciones sobre ese registro, como añadir, editar, eliminar o ver los gastos existentes, o ver el balance total de los gastos.
 
