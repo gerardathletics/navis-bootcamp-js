@@ -1,7 +1,7 @@
 const title = document.getElementById("title");
 
 const listItems = document.querySelectorAll(".listItems")
-console.log(listItems)
+// console.log(listItems)
 const listItemFirst =  document.querySelector
 
 
