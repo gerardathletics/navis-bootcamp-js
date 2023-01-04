@@ -8,6 +8,8 @@
         <script defer src="./selectores.js"></script>
         <script defer src="./atributos.js"></script>        
         <script defer src="./estilos.js"></script>
+        <script defer src="./creacion_elementos.js"></script>
+        <script defer src="./template.js"></script>
 
         <title>DOM</title>
 
@@ -23,6 +25,7 @@
     </head>
 
     <body>
+        <main class="board"></main>
         <h1 id="specialHeading" class="bigger" title="Hola Mundo">Hola Mundo</h1>
         <ul>
             <li class="listItems first">Primero</li>
@@ -31,7 +34,12 @@
 
         </ul>
         <div data-username="pepe">Pepe Div</div>
-
+        <template id="templateTest">
+            <div>
+                <p></p>
+                <p></p>
+            </div>
+        </template>
 
     </body>
 
