@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./main.js"></script>
+    <link rel="stylesheet" href="main.css">
+
+    <title>DOM - Evaluación</title>
+
+</head>
+
+<body>
+       <!-- Formulario para añadir una película -->
+    <form class="add-movie-form">
+        <input type="text" name="title" placeholder="Título">
+        <input type="text" name="image" placeholder="URL de la imagen">
+        <button type="submit">Añadir película</button>
+    </form>
+
+    <!-- Formulario para buscar una película por título -->
+    <form class="search-movie-form">
+        <input type="text" name="query" placeholder="Título de la película">
+        <button type="submit">Buscar</button>
+    </form>
+    
+    <!-- Contenedor para mostrar el listado de películas -->
+    <div class="movies-list">
+        <!-- Plantilla para renderizar cada película -->
+        <template id="movie-template">
+            <div class="movie">
+                <h2>{{title}}</h2>
+                <img src="{{img}}" alt="{{title}}">
+                <div class="movie-buttons">
+                    <button class="favorite-button">Fav</button>
+                    <button class="more-info">More...</button>
+                </div>
+            </div>
+        </template>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    margin: 10px;
+    text-align: center;
+}
+
+.movie img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    box-shadow: 5px 5px 5px rgb(199, 199, 199);
+}
+
+.movie h2 {
+    margin: 10px 0;
+    font-size: 16px;
+    height: 40px;
+}
+.movie-buttons {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-end;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.favorite-button {
+    margin-top: 1rem;
+    width: 2rem;
+    height: 1rem;
+    background: rgb(255, 207, 76);
+    border: none;
+    cursor: pointer;
+    font-size: 9px;
+    color: rgb(0, 0, 0);
+    transition: color 0.2s;
+}
+.more-info {
+    width: 3rem;
+    height: 1rem;
+    background: rgb(199, 199, 199);
+    border: none;
+    cursor: pointer;
+    font-size: 9px;
+    color: rgb(0, 0, 0);
+    transition: color 0.2s;
+}
+
+.favorite-button:hover {
+    color: #555;
+}
+
+.favorite-button.favorite {
+    color: #e74c3c;
+}
+
+.add-movie-form,
+.search-movie-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.add-movie-form input[type="text"],
+.search-movie-form input[type="text"] {
+    appearance: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px;
+    width: 250px;
+}
+
+.add-movie-form button,
+.search-movie-form button {
+    appearance: none;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.add-movie-form button:hover,
+.search-movie-form button:hover {
+    background-color: #eee;
+}
