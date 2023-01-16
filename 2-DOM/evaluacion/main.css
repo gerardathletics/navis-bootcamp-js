@@ -45,12 +45,12 @@ body {
     margin-top: 1rem;
     width: 2rem;
     height: 1rem;
-    background: rgb(255, 207, 76);
+    background: gold;
     border: none;
     cursor: pointer;
     font-size: 9px;
-    color: rgb(0, 0, 0);
-    transition: color 0.2s;
+    color: white;
+    border-radius: 5px;
 }
 .more-info {
     width: 3rem;
@@ -64,13 +64,16 @@ body {
 }
 
 .favorite-button:hover {
-    color: #555;
+    background-color: #ffd700;
 }
 
-.favorite-button.favorite {
-    color: #e74c3c;
+.gold-border {
+    border: 3px solid gold;
+    background-color: rgba(255, 217, 0, 0.075);
 }
 
+
+.fav-but-div,
 .add-movie-form,
 .search-movie-form {
     display: flex;
@@ -103,4 +106,32 @@ body {
 .add-movie-form button:hover,
 .search-movie-form button:hover {
     background-color: #eee;
+}
+
+
+/* CSS */
+.favoritas {
+    background-color: #fbeee0;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+}
+
+.favoritas:hover {
+    background-color: #fff;
+}
+
+.favoritas:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
 }

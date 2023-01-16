@@ -1,4 +1,3 @@
-
 movies = [
   {
     id: 1,
@@ -388,22 +387,46 @@ movies = [
 ];
 
 // Seleccionamos los elementos del DOM que vamos a utilizar
-const moviesList = document.querySelector('.movies-list');
-const movieTemplate = document.querySelector('#movie-template');
-const addMovieForm = document.querySelector('.add-movie-form');
-const searchMovieForm = document.querySelector('.search-movie-form');
+const moviesList = document.querySelector(".movies-list");
+const movieTemplate = document.querySelector("#movie-template");
+const addMovieForm = document.querySelector(".add-movie-form");
+const searchMovieForm = document.querySelector(".search-movie-form");
+
+movies = movies.map((movie) => ({ ...movie, fav: false }));
 
 // Renderizamos el listado de películas en la página
 function renderMovies() {
   // Eliminamos todas las películas del contenedor
-  moviesList.innerHTML = '';
+  moviesList.innerHTML = "";
 
   // Iteramos sobre la lista de películas y utilizamos la plantilla para renderizar cada una
   for (const movie of movies) {
     const movieElement = document.importNode(movieTemplate.content, true);
-    movieElement.querySelector('img').src = movie.img;
-    movieElement.querySelector('img').alt = movie.title;
-    movieElement.querySelector('h2').textContent = movie.title;
+    movieElement.querySelector("img").src = movie.img;
+    movieElement.querySelector("img").alt = movie.title;
+    movieElement.querySelector("h2").textContent = movie.title;
+
+    // Añadimos la clase "gold-border" si la película está marcada como favorita
+    // y cambiamos el texto del botón a "Unfav"
+    if (movie.fav) {
+      movieElement.querySelector(".movie").classList.add("gold-border");
+      movieElement.querySelector(".favorite-button").textContent = "Unfav";
+    }
+    const movieElem = movieElement.querySelector(".movie");
+    if (movieElem) {
+      movieElem
+        .querySelector(".favorite-button")
+        .addEventListener("click", function (event) {
+          movie.fav = !movie.fav;
+          if (movie.fav) {
+            movieElem.classList.add("gold-border");
+            movieElem.querySelector(".favorite-button").textContent = "Unfav";
+          } else {
+            movieElem.classList.remove("gold-border");
+            movieElem.querySelector(".favorite-button").textContent = "Fav";
+          }
+        });
+    }
     moviesList.appendChild(movieElement);
   }
 }
@@ -421,7 +444,7 @@ function addMovie(event) {
   const newMovie = {
     id: Date.now(),
     title: title,
-    img: image
+    img: image,
   };
 
   // Añadimos la nueva película a la lista y la renderizamos en la página
@@ -441,22 +464,59 @@ function searchMovie(event) {
   const query = event.target.elements.query.value;
 
   // Filtramos la lista de películas para obtener solo las que coincidan con el título
-  const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()));
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(query.toLowerCase())
+  );
 
   // Renderizamos la lista de películas filtradas
-  moviesList.innerHTML = '';
+  moviesList.innerHTML = "";
   for (const movie of filteredMovies) {
     const movieElement = document.importNode(movieTemplate.content, true);
-    movieElement.querySelector('img').src = movie.img;
-    movieElement.querySelector('img').alt = movie.title;
-    movieElement.querySelector('h2').textContent = movie.title;
+    movieElement.querySelector("img").src = movie.img;
+    movieElement.querySelector("img").alt = movie.title;
+    movieElement.querySelector("h2").textContent = movie.title;
     moviesList.appendChild(movieElement);
   }
 }
 
 // Añadimos los eventos necesarios
-addMovieForm.addEventListener('submit', addMovie);
-searchMovieForm.addEventListener('submit', searchMovie);
+addMovieForm.addEventListener("submit", addMovie);
+searchMovieForm.addEventListener("submit", searchMovie);
+
+// Filtramos las películas favoritas
+const favButton = document.querySelector(".favoritas");
+favButton.addEventListener("click", function () {
+  const filteredMovies = movies.filter((movie) => movie.fav);
+  moviesList.innerHTML = "";
+  for (const movie of filteredMovies) {
+    const movieElement = document.importNode(movieTemplate.content, true);
+    movieElement.querySelector("img").src = movie.img;
+    movieElement.querySelector("img").alt = movie.title;
+    movieElement.querySelector("h2").textContent = movie.title;
+    moviesList.appendChild(movieElement);
+
+    if (movie.fav) {
+      movieElement.querySelector(".movie").classList.add("gold-border");
+      movieElement.querySelector(".favorite-button").textContent = "Unfav";
+    }
+    const movieElem = movieElement.querySelector(".movie");
+    if (movieElem) {
+      movieElem
+        .querySelector(".favorite-button")
+        .addEventListener("click", function (event) {
+          movie.fav = !movie.fav;
+          if (movie.fav) {
+            movieElem.classList.add("gold-border");
+            movieElem.querySelector(".favorite-button").textContent = "Unfav";
+          } else {
+            movieElem.classList.remove("gold-border");
+            movieElem.querySelector(".favorite-button").textContent = "Fav";
+          }
+        });
+    }
+    moviesList.appendChild(movieElement);
+  }
+});
 
 // Renderizamos el listado de películas por primera vez
 renderMovies();
