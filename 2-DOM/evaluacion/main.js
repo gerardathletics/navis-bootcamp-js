@@ -406,27 +406,21 @@ function renderMovies() {
     movieElement.querySelector("img").alt = movie.title;
     movieElement.querySelector("h2").textContent = movie.title;
 
-    // Añadimos la clase "gold-border" si la película está marcada como favorita
-    // y cambiamos el texto del botón a "Unfav"
-    if (movie.fav) {
-      movieElement.querySelector(".movie").classList.add("gold-border");
-      movieElement.querySelector(".favorite-button").textContent = "Unfav";
-    }
+    // Añadimos la clase "gold-border" si la película está marcada como favorita y cambiamos el texto del botón a "Unfav"
     const movieElem = movieElement.querySelector(".movie");
-    if (movieElem) {
-      movieElem
-        .querySelector(".favorite-button")
-        .addEventListener("click", function (event) {
-          movie.fav = !movie.fav;
-          if (movie.fav) {
-            movieElem.classList.add("gold-border");
-            movieElem.querySelector(".favorite-button").textContent = "Unfav";
-          } else {
-            movieElem.classList.remove("gold-border");
-            movieElem.querySelector(".favorite-button").textContent = "Fav";
-          }
-        });
-    }
+    movieElem
+      .querySelector(".favorite-button")
+      .addEventListener("click", function (event) {
+        movie.fav = !movie.fav;
+        if (movie.fav) {
+          movieElem.classList.add("gold-border");
+          movieElem.querySelector(".favorite-button").textContent = "Unfav";
+        } else {
+          movieElem.classList.remove("gold-border");
+          movieElem.querySelector(".favorite-button").textContent = "Fav";
+        }
+      });
+
     moviesList.appendChild(movieElement);
   }
 }
@@ -485,6 +479,7 @@ searchMovieForm.addEventListener("submit", searchMovie);
 
 // Filtramos las películas favoritas
 const favButton = document.querySelector(".favoritas");
+
 favButton.addEventListener("click", function () {
   const filteredMovies = movies.filter((movie) => movie.fav);
   moviesList.innerHTML = "";
@@ -494,29 +489,17 @@ favButton.addEventListener("click", function () {
     movieElement.querySelector("img").alt = movie.title;
     movieElement.querySelector("h2").textContent = movie.title;
     moviesList.appendChild(movieElement);
-
-    if (movie.fav) {
-      movieElement.querySelector(".movie").classList.add("gold-border");
-      movieElement.querySelector(".favorite-button").textContent = "Unfav";
-    }
-    const movieElem = movieElement.querySelector(".movie");
-    if (movieElem) {
-      movieElem
-        .querySelector(".favorite-button")
-        .addEventListener("click", function (event) {
-          movie.fav = !movie.fav;
-          if (movie.fav) {
-            movieElem.classList.add("gold-border");
-            movieElem.querySelector(".favorite-button").textContent = "Unfav";
-          } else {
-            movieElem.classList.remove("gold-border");
-            movieElem.querySelector(".favorite-button").textContent = "Fav";
-          }
-        });
-    }
-    moviesList.appendChild(movieElement);
   }
 });
 
+function showAllMovies() {
+  renderMovies();
+}
+
+ const allMoviesButton = document.querySelector(".allMovies");
+ allMoviesButton.addEventListener("click", showAllMovies);
+
 // Renderizamos el listado de películas por primera vez
 renderMovies();
+
+

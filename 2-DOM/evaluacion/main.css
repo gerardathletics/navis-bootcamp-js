@@ -42,29 +42,44 @@ body {
 }
 
 .favorite-button {
-    margin-top: 1rem;
-    width: 2rem;
-    height: 1rem;
-    background: gold;
-    border: none;
+    background-color: #FFFFFF;
+    border: 0;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #111827;
+    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 0.2rem;
+    padding: .75rem 1rem;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     cursor: pointer;
-    font-size: 9px;
-    color: white;
-    border-radius: 5px;
-}
-.more-info {
-    width: 3rem;
-    height: 1rem;
-    background: rgb(199, 199, 199);
-    border: none;
-    cursor: pointer;
-    font-size: 9px;
-    color: rgb(0, 0, 0);
-    transition: color 0.2s;
+    touch-action: manipulation;
 }
 
 .favorite-button:hover {
     background-color: #ffd700;
+}
+
+
+.more-info {
+    background-color: #f3e5e5;
+    border: 0;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #111827;
+    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: .875rem;
+    font-weight: 600;
+    line-height: 0.2rem;
+    padding: .75rem 1rem;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 .gold-border {
@@ -132,6 +147,32 @@ body {
 }
 
 .favoritas:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
+}
+
+.allMovies {
+    background-color: #ffffff;
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+}
+
+.allMovies:hover {
+    background-color: #fff;
+}
+
+.allMovies:active {
     box-shadow: #422800 2px 2px 0 0;
     transform: translate(2px, 2px);
 }
